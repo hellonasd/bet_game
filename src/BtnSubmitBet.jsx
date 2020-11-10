@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { setBudget, setCurrentProfit, setMessages, changeFlag } from './userSlice';
+import { setBudget, setCurrentProfit, setMessages, changeFlag, setStatusBet } from './userSlice';
 import { useEffect } from 'react';
 
 export const BtnSubmitBet = () => {
@@ -19,10 +19,13 @@ export const BtnSubmitBet = () => {
         
         dispatch(setBudget(userBet * selectedIvent.percent / 100));
         dispatch(setMessages('поздравляем ты выйграл'));
+        dispatch(setStatusBet(`Размер выйграша : ${userBet * selectedIvent.percent / 100} руб`))
+
         
       } else {
         dispatch(setBudget(-(userBet * selectedIvent.percent / 100)));
-        dispatch(setMessages('к сожелению ты проиграл'))
+        dispatch(setMessages('к сожелению ты проиграл'));
+        dispatch(setStatusBet(`Размер проигрыша : ${-(userBet * selectedIvent.percent / 100)} руб`))
         
       }
     }
