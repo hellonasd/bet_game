@@ -6,3 +6,25 @@
 label {
   display: block;
 }
+
+.message {
+  background-color: #b8dbbc;
+  margin: 0 auto;
+  width: 800px;
+  height: 350px;
+  border-radius: 80px;
+}
+
+.result {
+  padding-top: 15%;
+  width: 783px;
+  height: 41px;
+  left: 357px;
+  top: 403px;
+
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 41px;
+}

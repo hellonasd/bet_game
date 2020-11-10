@@ -7,7 +7,9 @@ const initialState = {
   budget: 100,
   currentProfit: 0,
   currentBet: 0,
-  selectedIvent: {}
+  selectedIvent: {},
+  betResult : '',
+  flag : -1
 };
 
 // Определяем Срез хранилища, который отвечает за логику игрока
@@ -31,12 +33,18 @@ const userSlice = createSlice({
     setCurrentProfit(state, action) { // Метод, который устанавливает результат сделанной ставки
       state.currentProfit = action.payload;
     },
+    setMessages(state, action) {
+      state.betResult = action.payload
+    },
+    changeFlag(state, action){
+      state.flag = action.payload
+    }
   }
 });
 
 export default userSlice.reducer;
 
-export const { setUserBet, setSelectedIvent, setBudget, setCurrentProfit } = userSlice.actions; // Экспортируем методы (reducers) для изменения хранилища
+export const { setUserBet, setSelectedIvent, setBudget, setCurrentProfit ,setMessages, changeFlag} = userSlice.actions; // Экспортируем методы (reducers) для изменения хранилища
 
 export const getName = (state) => {
   return state.user.name;
